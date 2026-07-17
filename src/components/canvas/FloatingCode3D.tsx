@@ -80,7 +80,7 @@ function Scene() {
 export function FloatingCode3D() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0" style={{ perspective: "1000px" }}>
-      <Canvas camera={{ position: [0, 0, 8], fov: 45 }} style={{ pointerEvents: "none" as const }}>
+      <Canvas camera={{ position: [0, 0, 8], fov: 45 }} onCreated={(s) => { s.gl.domElement.style.pointerEvents = "none"; }}>
         <Scene />
       </Canvas>
     </div>
