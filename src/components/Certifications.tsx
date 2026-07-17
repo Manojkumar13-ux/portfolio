@@ -19,8 +19,7 @@ export function Certifications() {
   }, []);
 
   return (
-    <section id="certifications" ref={sectionRef} className="bg-white min-h-screen w-full py-20 md:py-32 font-inter overflow-hidden flex flex-col justify-center">
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.4) 1px, transparent 0)", backgroundSize: "40px 40px" }} />
+    <section id="certifications" ref={sectionRef} className="bg-[#f5f5f7] min-h-screen w-full py-20 md:py-32 font-inter overflow-hidden flex flex-col justify-center">
       <div className="relative w-full max-w-5xl mx-auto px-6 md:px-12">
         <div className="cert-title mb-16">
           <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#f03e3e] mb-4">Credentials</p>
@@ -28,19 +27,21 @@ export function Certifications() {
         </div>
           <div className="grid md:grid-cols-3 gap-6">
             {certifications.map((cert, i) => (
-              <a key={i} href={cert.link} onClick={(e) => { e.preventDefault(); window.open(cert.link, "_blank", "noopener,noreferrer"); }} className="cert-card group relative p-6 md:p-8 rounded-2xl bg-white border-2 border-[#e5e7eb] shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_50px_rgba(240,62,62,0.18)] hover:border-[#f03e3e] transition-all duration-300 flex flex-col gap-4">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f03e3e] to-[#f03e3e]/40 rounded-t-2xl" />
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold tracking-widest uppercase text-[#1a1a1a]/70">{cert.date}</span>
-                  <div className="w-8 h-8 rounded-full bg-[#f03e3e] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(240,62,62,0.3)]">
-                    <span className="text-xs font-black text-white">{String(i + 1).padStart(2, "0")}</span>
+              <a key={i} href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-card group relative block p-6 md:p-8 rounded-2xl bg-white border border-gray-300 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_40px_rgba(240,62,62,0.2)] hover:border-[#f03e3e] transition-all duration-300">
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#f03e3e] rounded-t-2xl" />
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs font-bold tracking-widest uppercase text-black/50">{cert.date}</span>
+                    <div className="w-8 h-8 rounded-full bg-[#f03e3e] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(240,62,62,0.3)]">
+                      <span className="text-xs font-black text-white">{String(i + 1).padStart(2, "0")}</span>
+                    </div>
                   </div>
-                </div>
-                <h3 className="text-base md:text-lg font-black text-[#1a1a1a] tracking-tight leading-snug min-h-[3.5em]">{cert.title}</h3>
-                <p className="text-xs font-bold text-[#f03e3e]">{cert.issuer}</p>
-                <div className="flex items-center gap-1.5 mt-auto pt-3 text-xs font-bold text-[#1a1a1a]/60 uppercase tracking-widest group-hover:text-[#f03e3e] transition-colors border-t border-[#e5e7eb]">
-                  <span>View Certificate</span>
-                  <ExternalLink className="w-3 h-3" />
+                  <h3 className="text-base md:text-lg font-black text-[#1a1a1a] tracking-tight leading-snug min-h-[3.5em]">{cert.title}</h3>
+                  <p className="text-sm font-bold text-[#f03e3e]">{cert.issuer}</p>
+                  <div className="flex items-center gap-1.5 mt-2 pt-3 text-xs font-bold text-black/50 uppercase tracking-widest group-hover:text-[#f03e3e] transition-colors border-t border-gray-200">
+                    <span>View Certificate</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </div>
                 </div>
               </a>
             ))}

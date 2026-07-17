@@ -1,10 +1,13 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { personalInfo, hero } from "@/data/portfolio";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const FloatingCode3D = dynamic(() => import("@/components/canvas/FloatingCode3D").then(m => ({ default: m.FloatingCode3D })), { ssr: false });
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -22,11 +25,12 @@ export function Hero() {
 
   return (
     <section id="home" ref={sectionRef} className="bg-white min-h-screen w-full relative flex flex-col font-inter text-[#1a1a1a] overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 80% 20%, rgba(240,62,62,0.03) 0%, transparent 50%)" }} />
-
-      <div className="relative flex-1 flex items-center justify-center px-6 md:px-12">
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <FloatingCode3D />
+      </div>
+      <div className="relative z-10 flex-1 flex items-center justify-center px-6 md:px-12">
         <div className="w-full max-w-5xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          <div className="space-y-6 z-10">
+          <div className="space-y-6">
             <p className="hero-text-anim text-xs font-bold tracking-[0.3em] uppercase text-[#f03e3e]">{personalInfo.location}</p>
             <h1 ref={textRef} className="hero-text-anim text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-[#1a1a1a] leading-[1.1]">
               Hi, I'm{" "}
@@ -99,7 +103,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 z-10">
         <a href="/about" className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#1a1a1a]/20 hover:text-[#f03e3e] transition-colors duration-300">Explore my work</a>
         <div className="w-px h-8 bg-gradient-to-b from-[#f03e3e]/40 to-transparent" />
       </div>
