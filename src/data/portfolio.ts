@@ -88,11 +88,14 @@ export const experience = [
 
 export const education = { institution: "Nehru Institute of Engineering and Technology", degree: "Bachelor of Engineering", field: "Computer Science and Engineering", period: "2021 - 2025", cgpa: "7.30/10" };
 
-export const certifications = [
-  "Java Programming - IIT Bombay Spoken Tutorial",
-  "Python Programming - IIT Bombay Spoken Tutorial",
-  "MongoDB Basics - MongoDB University",
-  "Postman API Fundamentals Student Expert",
+export interface Certification {
+  title: string; issuer: string; date: string; link: string;
+}
+
+export const certifications: Certification[] = [
+  { title: "Introduction to Cloud Job Simulation", issuer: "Datacom (Forage)", date: "Jul 2026", link: "https://www.theforage.com/completion-certificates/gCW7Xki5Y3vNpBmnn/qsuRRyXDZ7Dj2QFx4_gCW7Xki5Y3vNpBmnn_693a6ad6f94bb69f9cb2d736_1784275834067_completion_certificate.pdf" },
+  { title: "Introduction to Cybersecurity Job Simulation", issuer: "Commonwealth Bank (Forage)", date: "Jul 2026", link: "https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/x52Jy9s26xNbZkTQ7_2sNmYuurxgpFYawco_693a6ad6f94bb69f9cb2d736_1784275595075_completion_certificate.pdf" },
+  { title: "Advanced Software Engineering Job Simulation", issuer: "Walmart USA (Forage)", date: "Jul 2026", link: "https://www.theforage.com/completion-certificates/prBZoAihniNijyD6d/oX6f9BbCL9kJDJzfg_prBZoAihniNijyD6d_693a6ad6f94bb69f9cb2d736_1784272219631_completion_certificate.pdf" },
 ];
 
 export const achievements = [
