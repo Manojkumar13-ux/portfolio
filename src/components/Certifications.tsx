@@ -19,7 +19,7 @@ export function Certifications() {
   }, []);
 
   return (
-    <section id="certifications" ref={sectionRef} className="bg-[#f5f5f7] min-h-screen w-full py-20 md:py-32 font-inter overflow-hidden flex flex-col justify-center">
+    <section id="certifications" ref={sectionRef} className="bg-[#f5f5f7] w-full py-20 md:py-32 font-inter">
       <div className="relative w-full max-w-5xl mx-auto px-6 md:px-12">
         <div className="cert-title mb-16">
           <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#f03e3e] mb-4">Credentials</p>
@@ -27,7 +27,7 @@ export function Certifications() {
         </div>
           <div className="grid md:grid-cols-3 gap-6">
             {certifications.map((cert, i) => (
-              <a key={i} href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-card group relative block p-6 md:p-8 rounded-2xl bg-white border border-gray-300 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_40px_rgba(240,62,62,0.2)] hover:border-[#f03e3e] transition-all duration-300">
+              <a key={i} href={cert.link} onClick={(e) => { e.preventDefault(); window.location.href = cert.link; }} className="cert-card group relative block p-6 md:p-8 rounded-2xl bg-white border border-gray-300 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_40px_rgba(240,62,62,0.2)] hover:border-[#f03e3e] transition-all duration-300">
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-[#f03e3e] rounded-t-2xl" />
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center justify-between mb-1">
