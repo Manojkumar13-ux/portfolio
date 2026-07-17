@@ -28,7 +28,7 @@ export function Certifications() {
         </div>
           <div className="grid md:grid-cols-3 gap-6">
             {certifications.map((cert, i) => (
-              <a key={i} href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-card group relative p-6 md:p-8 rounded-2xl bg-white border-2 border-[#e5e7eb] shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_50px_rgba(240,62,62,0.18)] hover:border-[#f03e3e] transition-all duration-300 flex flex-col gap-4">
+              <a key={i} href={cert.link} onClick={(e) => { e.preventDefault(); window.open(cert.link, "_blank", "noopener,noreferrer"); }} className="cert-card group relative p-6 md:p-8 rounded-2xl bg-white border-2 border-[#e5e7eb] shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_50px_rgba(240,62,62,0.18)] hover:border-[#f03e3e] transition-all duration-300 flex flex-col gap-4">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f03e3e] to-[#f03e3e]/40 rounded-t-2xl" />
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-xs font-bold tracking-widest uppercase text-[#1a1a1a]/70">{cert.date}</span>
