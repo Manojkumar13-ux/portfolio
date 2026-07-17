@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { personalInfo, hero } from "@/data/portfolio";
@@ -10,6 +10,7 @@ export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
+  const [imgError, setImgError] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -72,8 +73,11 @@ export function Hero() {
                   </div>
                   <div className="w-full flex justify-center mb-6">
                     <div className="w-[120px] h-[140px] bg-[#f03e3e]/10 rounded overflow-hidden flex items-center justify-center">
-                      <img src="/Manoj-profile.png" alt={personalInfo.firstName} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; (e.target as HTMLImageElement).parentElement!.querySelector(".initials")?.classList.remove("hidden"); }} />
-                      <span className="initials hidden text-4xl font-black text-[#f03e3e]">{personalInfo.firstName[0]}{personalInfo.lastName[0]}</span>
+                      {!imgError ? (
+                        <img src="/Manoj-profile.png" alt={personalInfo.firstName} className="w-full h-full object-cover" onError={() => setImgError(true)} />
+                      ) : (
+                        <span className="text-4xl font-black text-[#f03e3e]">{personalInfo.firstName[0]}{personalInfo.lastName[0]}</span>
+                      )}
                     </div>
                   </div>
                   <div className="flex flex-col gap-4 mt-auto">
