@@ -28,17 +28,17 @@ export function Certifications() {
         </div>
           <div className="grid md:grid-cols-3 gap-6">
             {certifications.map((cert, i) => (
-              <a key={i} href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-card group relative p-6 md:p-8 rounded-2xl bg-[#fafbfc] border border-gray-200 shadow-[0_4px_16px_rgba(0,0,0,0.07)] hover:shadow-[0_12px_40px_rgba(240,62,62,0.15)] hover:border-[#f03e3e]/40 hover:bg-white transition-all duration-300 flex flex-col gap-4">
+              <a key={i} href={cert.link} target="_blank" rel="noopener noreferrer" className="cert-card group relative p-6 md:p-8 rounded-2xl bg-white border-2 border-[#e5e7eb] shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_50px_rgba(240,62,62,0.18)] hover:border-[#f03e3e] transition-all duration-300 flex flex-col gap-4">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#f03e3e] to-[#f03e3e]/40 rounded-t-2xl" />
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-[#1a1a1a]/50">{cert.date}</span>
-                  <div className="w-7 h-7 rounded-full bg-[#f03e3e] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(240,62,62,0.3)]">
-                    <span className="text-[10px] font-black text-white">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="text-xs font-bold tracking-widest uppercase text-[#1a1a1a]/70">{cert.date}</span>
+                  <div className="w-8 h-8 rounded-full bg-[#f03e3e] flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(240,62,62,0.3)]">
+                    <span className="text-xs font-black text-white">{String(i + 1).padStart(2, "0")}</span>
                   </div>
                 </div>
                 <h3 className="text-base md:text-lg font-black text-[#1a1a1a] tracking-tight leading-snug min-h-[3.5em]">{cert.title}</h3>
                 <p className="text-xs font-bold text-[#f03e3e]">{cert.issuer}</p>
-                <div className="flex items-center gap-1.5 mt-auto pt-3 text-[10px] font-bold text-[#1a1a1a]/50 uppercase tracking-widest group-hover:text-[#f03e3e] transition-colors border-t border-gray-200">
+                <div className="flex items-center gap-1.5 mt-auto pt-3 text-xs font-bold text-[#1a1a1a]/60 uppercase tracking-widest group-hover:text-[#f03e3e] transition-colors border-t border-[#e5e7eb]">
                   <span>View Certificate</span>
                   <ExternalLink className="w-3 h-3" />
                 </div>
