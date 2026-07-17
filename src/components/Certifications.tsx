@@ -12,14 +12,14 @@ export function Certifications() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".cert-title", { y: 60, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: ".cert-title", start: "top 85%" } });
-      gsap.from(".cert-card", { y: 50, opacity: 0, duration: 0.6, stagger: 0.12, ease: "power3.out", scrollTrigger: { trigger: ".cert-card", start: "top 90%" } });
+      gsap.from(".cert-title", { y: 40, opacity: 0, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: ".cert-title", start: "top 85%" } });
+      gsap.fromTo(".cert-card", { y: 30, opacity: 0, immediateRender: true }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1, ease: "power2.out", scrollTrigger: { trigger: ".cert-card", start: "top 92%" } });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section id="certifications" ref={sectionRef} className="bg-[#f5f5f7] w-full py-20 md:py-32 font-inter">
+    <section id="certifications" ref={sectionRef} className="bg-[#f5f5f7] w-full py-16 md:py-24 font-inter">
       <div className="relative w-full max-w-5xl mx-auto px-6 md:px-12">
         <div className="cert-title mb-16">
           <p className="text-xs font-bold tracking-[0.3em] uppercase text-[#f03e3e] mb-4">Credentials</p>
