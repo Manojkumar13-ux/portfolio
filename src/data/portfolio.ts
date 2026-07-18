@@ -9,7 +9,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/manoj-kumar-61b308422",
   github: "https://github.com/Manojkumar13-ux",
   leetcode: "https://leetcode.com/u/manojkumar1290/",
-  resumeUrl: "/ManojKumar.pdf",
+  resumeUrl: "/Manojkumar18.pdf",
 };
 
 export const hero = {
